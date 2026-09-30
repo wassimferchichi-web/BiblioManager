@@ -1,0 +1,12 @@
+com\bibliomanager\controllers\LoansController.class
+com\bibliomanager\utils\PDFExporter.class
+com\bibliomanager\models\Member.class
+com\bibliomanager\dao\MemberDAO.class
+com\bibliomanager\controllers\BooksController.class
+com\bibliomanager\dao\BookDAO.class
+com\bibliomanager\dao\LoanDAO.class
+com\bibliomanager\models\Book.class
+com\bibliomanager\models\Loan.class
+com\bibliomanager\controllers\LoansController$1.class
+com\bibliomanager\controllers\MembersController.class
+com\bibliomanager\controllers\DashboardController.class

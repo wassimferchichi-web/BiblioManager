@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bibliomanager.controllers.BooksController"
+            style="-fx-background-color: #1e1e2e;">
+
+    <left>
+        <VBox style="-fx-background-color: #181825; -fx-padding: 20; -fx-spacing: 8;"
+              prefWidth="200">
+
+            <Label text="📚 BiblioManager"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold;
+                          -fx-text-fill: #cdd6f4; -fx-padding: 0 0 20 0;"/>
+
+            <Button text="🏠  Dashboard" maxWidth="Infinity"
+                    onAction="#goToDashboard"
+                    style="-fx-background-color: transparent; -fx-text-fill: #a6adc8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Button text="📖  Books" maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Button text="👥  Members" maxWidth="Infinity"
+                    onAction="#goToMembers"
+                    style="-fx-background-color: transparent; -fx-text-fill: #a6adc8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Button text="📋  Loans" maxWidth="Infinity"
+                    onAction="#goToLoans"
+                    style="-fx-background-color: transparent; -fx-text-fill: #a6adc8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+
+            <VBox VBox.vgrow="ALWAYS"/>
+
+            <Label fx:id="loggedUserLabel"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 12px;"/>
+            <Button text="🚪  Logout" maxWidth="Infinity"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: transparent; -fx-text-fill: #f38ba8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox style="-fx-padding: 30; -fx-spacing: 16;">
+
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <Label text="📖 Books"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;
+                              -fx-text-fill: #cdd6f4;"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField"
+                           promptText="🔍 Search by title or author..."
+                           prefWidth="260"
+                           onKeyReleased="#handleSearch"
+                           style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                                  -fx-prompt-text-fill: #585b70; -fx-border-color: #45475a;
+                                  -fx-border-radius: 6; -fx-background-radius: 6;
+                                  -fx-padding: 8 12; -fx-font-size: 13px;"/>
+                <Button text="+ Add Book" onAction="#handleAddBook"
+                        style="-fx-background-color: #89b4fa; -fx-text-fill: #1e1e2e;
+                               -fx-font-weight: bold; -fx-background-radius: 6;
+                               -fx-padding: 8 16; -fx-cursor: hand;"/>
+            </HBox>
+
+            <TableView fx:id="booksTable" VBox.vgrow="ALWAYS"
+                       style="-fx-background-color: #313244; -fx-border-color: #45475a;
+                              -fx-border-radius: 8; -fx-background-radius: 8;">
+                <columns>
+                    <TableColumn fx:id="colTitle"    text="Title"     prefWidth="220"/>
+                    <TableColumn fx:id="colAuthor"   text="Author"    prefWidth="160"/>
+                    <TableColumn fx:id="colIsbn"     text="ISBN"      prefWidth="130"/>
+                    <TableColumn fx:id="colCategory" text="Category"  prefWidth="120"/>
+                    <TableColumn fx:id="colTotal"    text="Copies"    prefWidth="70"/>
+                    <TableColumn fx:id="colAvail"    text="Available" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <Button text="✏️ Edit" onAction="#handleEditBook"
+                        style="-fx-background-color: #f9e2af; -fx-text-fill: #1e1e2e;
+                               -fx-font-weight: bold; -fx-background-radius: 6;
+                               -fx-padding: 8 16; -fx-cursor: hand;"/>
+                <Button text="🗑️ Delete" onAction="#handleDeleteBook"
+                        style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e;
+                               -fx-font-weight: bold; -fx-background-radius: 6;
+                               -fx-padding: 8 16; -fx-cursor: hand;"/>
+                <Label fx:id="statusLabel" style="-fx-text-fill: #a6adc8; -fx-font-size: 12px;"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

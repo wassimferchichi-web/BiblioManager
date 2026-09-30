@@ -1,0 +1,16 @@
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\controllers\BooksController.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\controllers\DashboardController.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\controllers\LoansController.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\controllers\LoginController.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\controllers\MembersController.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\dao\BookDAO.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\dao\LoanDAO.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\dao\MemberDAO.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\dao\UserDAO.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\Main.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\models\Book.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\models\Loan.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\models\Member.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\models\User.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\utils\DBConnection.java
+C:\Users\user\Desktop\projectjava\untitled\src\main\java\com\bibliomanager\utils\PDFExporter.java

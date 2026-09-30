@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bibliomanager.controllers.DashboardController"
+            style="-fx-background-color: #1e1e2e;">
+
+    <left>
+        <VBox style="-fx-background-color: #181825; -fx-padding: 20; -fx-spacing: 8;"
+              prefWidth="200">
+
+            <Label text="📚 BiblioManager"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold;
+                          -fx-text-fill: #cdd6f4; -fx-padding: 0 0 20 0;"/>
+
+            <Button text="🏠  Dashboard" maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Button text="📖  Books" maxWidth="Infinity"
+                    onAction="#goToBooks"
+                    style="-fx-background-color: transparent; -fx-text-fill: #a6adc8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Button text="👥  Members" maxWidth="Infinity"
+                    onAction="#goToMembers"
+                    style="-fx-background-color: transparent; -fx-text-fill: #a6adc8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Button text="📋  Loans" maxWidth="Infinity"
+                    onAction="#goToLoans"
+                    style="-fx-background-color: transparent; -fx-text-fill: #a6adc8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+
+            <VBox VBox.vgrow="ALWAYS"/>
+
+            <Label fx:id="loggedUserLabel"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 12px;"/>
+            <Button text="🚪  Logout" maxWidth="Infinity"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: transparent; -fx-text-fill: #f38ba8;
+                           -fx-alignment: CENTER-LEFT; -fx-padding: 10 16;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background-color: #1e1e2e; -fx-background: #1e1e2e;">
+            <VBox style="-fx-padding: 30; -fx-spacing: 24;">
+
+                <Label text="Dashboard"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;
+                              -fx-text-fill: #cdd6f4;"/>
+
+                <!-- STAT CARDS -->
+                <HBox spacing="16">
+                    <VBox style="-fx-background-color: #313244; -fx-padding: 20;
+                                 -fx-background-radius: 10;" prefWidth="160">
+                        <Label text="📚 Total Books"
+                               style="-fx-text-fill: #a6adc8; -fx-font-size: 12px;"/>
+                        <Label fx:id="totalBooksLabel" text="0"
+                               style="-fx-text-fill: #89b4fa; -fx-font-size: 32px;
+                                      -fx-font-weight: bold;"/>
+                    </VBox>
+                    <VBox style="-fx-background-color: #313244; -fx-padding: 20;
+                                 -fx-background-radius: 10;" prefWidth="160">
+                        <Label text="👥 Members"
+                               style="-fx-text-fill: #a6adc8; -fx-font-size: 12px;"/>
+                        <Label fx:id="totalMembersLabel" text="0"
+                               style="-fx-text-fill: #a6e3a1; -fx-font-size: 32px;
+                                      -fx-font-weight: bold;"/>
+                    </VBox>
+                    <VBox style="-fx-background-color: #313244; -fx-padding: 20;
+                                 -fx-background-radius: 10;" prefWidth="160">
+                        <Label text="📋 Active Loans"
+                               style="-fx-text-fill: #a6adc8; -fx-font-size: 12px;"/>
+                        <Label fx:id="activeLoansLabel" text="0"
+                               style="-fx-text-fill: #f9e2af; -fx-font-size: 32px;
+                                      -fx-font-weight: bold;"/>
+                    </VBox>
+                    <VBox style="-fx-background-color: #313244; -fx-padding: 20;
+                                 -fx-background-radius: 10;" prefWidth="160">
+                        <Label text="⚠️ Overdue"
+                               style="-fx-text-fill: #a6adc8; -fx-font-size: 12px;"/>
+                        <Label fx:id="overdueLabel" text="0"
+                               style="-fx-text-fill: #f38ba8; -fx-font-size: 32px;
+                                      -fx-font-weight: bold;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- CHARTS -->
+                <HBox spacing="16">
+
+                    <!-- Bar Chart — Books per Category -->
+                    <VBox style="-fx-background-color: #313244; -fx-padding: 16;
+                                 -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                        <Label text="📊 Books by Category"
+                               style="-fx-text-fill: #cdd6f4; -fx-font-size: 14px;
+                                      -fx-font-weight: bold; -fx-padding: 0 0 10 0;"/>
+                        <BarChart fx:id="categoryChart" prefHeight="250"
+                                  style="-fx-background-color: transparent;">
+                            <xAxis>
+                                <CategoryAxis style="-fx-tick-label-fill: #a6adc8;"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis style="-fx-tick-label-fill: #a6adc8;"/>
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+
+                    <!-- Pie Chart — Loan Status -->
+                    <VBox style="-fx-background-color: #313244; -fx-padding: 16;
+                                 -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                        <Label text="🥧 Loans by Status"
+                               style="-fx-text-fill: #cdd6f4; -fx-font-size: 14px;
+                                      -fx-font-weight: bold; -fx-padding: 0 0 10 0;"/>
+                        <PieChart fx:id="statusChart" prefHeight="250"
+                                  style="-fx-background-color: transparent;"
+                                  legendVisible="true"/>
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

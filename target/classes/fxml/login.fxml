@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bibliomanager.controllers.LoginController"
+      alignment="CENTER"
+      spacing="15"
+      style="-fx-background-color: #1e1e2e; -fx-padding: 60;">
+
+    <Label text="📚 BiblioManager"
+           style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #cdd6f4;"/>
+
+    <Label text="Sign in to your account"
+           style="-fx-font-size: 13px; -fx-text-fill: #a6adc8;"/>
+
+    <VBox spacing="6" maxWidth="320">
+        <Label text="Username" style="-fx-text-fill: #cdd6f4; -fx-font-size: 13px;"/>
+        <TextField fx:id="usernameField"
+                   promptText="Enter your username"
+                   style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                          -fx-prompt-text-fill: #585b70; -fx-border-color: #45475a;
+                          -fx-border-radius: 6; -fx-background-radius: 6;
+                          -fx-padding: 10; -fx-font-size: 13px;"/>
+    </VBox>
+
+    <VBox spacing="6" maxWidth="320">
+        <Label text="Password" style="-fx-text-fill: #cdd6f4; -fx-font-size: 13px;"/>
+        <PasswordField fx:id="passwordField"
+                       promptText="Enter your password"
+                       style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                              -fx-prompt-text-fill: #585b70; -fx-border-color: #45475a;
+                              -fx-border-radius: 6; -fx-background-radius: 6;
+                              -fx-padding: 10; -fx-font-size: 13px;"/>
+    </VBox>
+
+    <Label fx:id="errorLabel"
+           style="-fx-text-fill: #f38ba8; -fx-font-size: 12px;"
+           text=""/>
+
+    <Button fx:id="loginButton"
+            text="Login"
+            onAction="#handleLogin"
+            maxWidth="320"
+            style="-fx-background-color: #89b4fa; -fx-text-fill: #1e1e2e;
+                   -fx-font-weight: bold; -fx-font-size: 14px;
+                   -fx-background-radius: 6; -fx-padding: 10 0;
+                   -fx-cursor: hand;"/>
+
+</VBox>
